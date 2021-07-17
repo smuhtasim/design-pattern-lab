@@ -1,0 +1,28 @@
+interface userText {
+    operation(): string
+}
+
+class normalText implements userText {
+
+    sampleText: string
+
+    constructor(inputText: string) {
+        this.sampleText = inputText
+    }
+
+    public operation(): string {
+        return this.sampleText;
+    }
+}
+
+class textModifier implements userText {
+    protected sampleText: userText;
+
+    constructor(component: userText) {
+        this.sampleText = component;
+    }
+
+    public operation(): string {
+        return this.sampleText.operation();
+    }
+}
